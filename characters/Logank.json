@@ -1,0 +1,13 @@
+[
+  "NAME: Logank",
+  "RACE: Elf",
+  "CLASS: Druid",
+  {
+    "STR": "15",
+    "DEX": "12",
+    "CON": "11",
+    "INT": "7",
+    "WIS": "10",
+    "CHA": "8"
+  }
+]
