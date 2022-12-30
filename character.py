@@ -1,7 +1,14 @@
 import random
-from pprint import pprint
+from charsheet import getSheet
 
-class Character():
+
+class Character:
+    """Generate a character stat sheet for a given Name, Race, and Class.
+
+    Returns:
+        obj: Character
+    """
+
     name = input("Name: ")
     race = input("Race: ")
     char_class = input("Class: ")
@@ -11,9 +18,21 @@ class Character():
     intelligence = []
     wisdom = []
     charisma = []
-    
+
     def rollCharacter(self):
-        attributes = [Character.strength, Character.dexterity, Character.constitution, Character.intelligence, Character.wisdom, Character.charisma]
+        """Roll a charcter sheet.
+
+        Returns:
+            dict: Character's stat sheet (STR, DEX, CON, INT, WIS, CHA)
+        """
+        attributes = [
+            Character.strength,
+            Character.dexterity,
+            Character.constitution,
+            Character.intelligence,
+            Character.wisdom,
+            Character.charisma,
+        ]
 
         for i in range(1, 5):
             Character.strength.append(random.randint(1, 6))
@@ -33,21 +52,29 @@ class Character():
         self.INT = str(sum(attributes[3]))
         self.WIS = str(sum(attributes[4]))
         self.CHA = str(sum(attributes[5]))
-        self.stats = {"STR": self.STR, "DEX": self.DEX, "CON": self.CON, "INT": self.INT, "WIS": self.WIS, "CHA": self.CHA}
+        self.stats = {
+            "STR": self.STR,
+            "DEX": self.DEX,
+            "CON": self.CON,
+            "INT": self.INT,
+            "WIS": self.WIS,
+            "CHA": self.CHA,
+        }
         return self.stats
 
-def writeOut(sheet):
-    file = open('/home/logank/projects/pf/characters/' + (str(Character.name + '.txt')), 'w')
-    file.write(str(sheet))
-    file.close()
 
 def main():
-    char = Character()
     char.rollCharacter()
-    sheet = (char.name, char.race, char.char_class, char.stats)
-    writeOut(sheet)
+    sheet = (
+        "NAME: " + char.name,
+        "RACE: " + char.race,
+        "CLASS: " + char.char_class,
+        char.stats,
+    )
+    getSheet(CHARACTER, sheet)
+
+
+char = Character()
+CHARACTER = char.name
 
 main()
-
-# pprint(sheet, indent=4, compact=True, sort_dicts=False)
-# Prints outpup to terminal

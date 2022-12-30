@@ -1,0 +1,7 @@
+#def writeOut(sheet):
+#    file = open('./pf/characters/' + (str(Character.name + '.txt')), 'w')
+#    file.write(str(sheet))
+#    file.close()
+
+# pprint(sheet, indent=4, compact=True, sort_dicts=False)
+# Prints outpup to terminal

@@ -22,7 +22,14 @@ d = xdy.find("d")
 amount = int(xdy[0:d])
 sides = int(xdy[d + 1 :])
 
+
 def roll(amount, sides):
+    """Roll (x) number of (y)-sided dice.
+
+    Args:
+        amount (int): Number of dice to roll.
+        sides (int): Specific die to roll.
+    """
     rolls = []
     for i in range(0, amount):
         rolls.append(random.randint(1, sides))
@@ -48,7 +55,6 @@ def roll(amount, sides):
     else:
         print(rolls)
 
+
 def main():
     (roll(amount, sides))
-
-main()
